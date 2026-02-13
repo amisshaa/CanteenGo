@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Canteen Updator</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+    margin:0;
+    background:black;
+    color:white;
+    font-family:'Poppins',sans-serif;
+}
+
+h1{
+    text-align:center;
+    font-family:'Dancing Script',cursive;
+    font-size:48px;
+    margin:20px;
+    animation:fadeDown 1s ease;
+}
+
+.container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    padding:20px;
+}
+
+.card{
+    background:#111;
+    border-radius:15px;
+    padding:15px;
+    text-align:center;
+    box-shadow:0 0 10px rgba(255,255,255,0.1);
+    animation:fadeUp 0.8s ease forwards;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px) scale(1.02);
+}
+
+img{
+    width:100%;
+    height:140px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+.food-name{
+    font-size:18px;
+    font-weight:600;
+    margin-top:10px;
+}
+
+input{
+    width:70px;
+    padding:6px;
+    margin-top:10px;
+    border-radius:5px;
+    border:none;
+}
+
+button{
+    margin-top:8px;
+    padding:6px 14px;
+    border:none;
+    border-radius:20px;
+    background:gold;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+@keyframes fadeUp{
+    from{opacity:0;transform:translateY(30px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+@keyframes fadeDown{
+    from{opacity:0;transform:translateY(-30px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+</style>
+</head>
+<body>
+
+<h1>Canteen Updator</h1>
+
+<div class="container" id="foodContainer"></div>
+
+<script>
+
+let foods=[
+{name:"Neychoru",qty:50,img:"neychorru.jpg"},
+{name:"Homely Snacks",qty:30,img:"snacks.jpg"},
+{name:"Coffee",qty:40,img:"cofee.webp"},
+{name:"Puttu & Beef",qty:25,img:"puttu beef.jpg"},
+{name:"Dosa & Sambar",qty:35,img:"dosa.jpg"},
+{name:"Meal",qty:20,img:"meals.jpg"},
+{name:"Tea",qty:60,img:"chaii.jpg"},
+{name:"Biriyani",qty:15,img:"biriyani.jpg"},
+{name:"Pazhampori",qty:4,img:"parra.jpg"},
+{name:"Samoosa",qty:70,img:"samosa.webp"}
+];
+
+function renderFoods(){
+let container=document.getElementById("foodContainer");
+container.innerHTML="";
+
+foods.forEach((food,index)=>{
+container.innerHTML+=`
+<div class="card">
+<img src="${food.img}">
+<div class="food-name">${food.name}</div>
+<div>Available: ${food.qty}</div>
+<input type="number" id="qty${index}" placeholder="Qty">
+<br>
+<button onclick="updateFood(${index})">Update</button>
+</div>`;
+});
+}
+
+function updateFood(index){
+let newQty=document.getElementById("qty"+index).value;
+if(newQty===""||newQty<0){
+alert("Enter valid quantity");
+return;
+}
+foods[index].qty=Number(newQty);
+renderFoods();
+}
+
+renderFoods();
+
+</script>
+
+</body>
+</html>
