@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Orders</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin:0;
+    background:black;
+    color:white;
+    font-family:'Poppins', sans-serif;
+    overflow-x:hidden;
+    position:relative;
+}
+
+/* HEADER */
+.header {
+    text-align:center;
+    padding:50px 20px 20px 20px;
+    z-index: 5;
+}
+
+.header h1 {
+    font-family:'Montserrat', sans-serif;
+    font-size:60px;
+    margin:0;
+    color: #111;
+}
+.header h1 {
+    font-family:'Montserrat', sans-serif;
+    font-size:60px;
+    margin:0;
+    color: black;
+    background: radial-gradient(circle, #f5c542, #ffec99);
+    padding: 20px 40px;
+    border-radius: 50%;
+    display: inline-block;
+    animation: pulse 1.5s ease-in-out infinite;
+    text-align: center;
+}
+
+/* Pulsing bubble */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+
+/* BILL SPLASH 
+.bill-splash {
+    position:absolute;
+    top:50px;
+    left:50%;
+    transform:translateX(-50%);
+    width:80%;
+    padding:30px;
+    border-radius:30px;
+    background: radial-gradient(circle at top left, #f5c542, #ffec99, #f5c542);
+    box-shadow: 0 0 50px 10px #f5c542;
+    animation: sparkle 1.5s ease-in-out infinite alternate;
+    z-index:-1;*/
+
+/* Spark animation */
+@keyframes sparkle {
+    0%{transform:translateX(-50%) scale(1);}
+    50%{transform:translateX(-50%) scale(1.02);}
+    100%{transform:translateX(-50%) scale(1);}
+}
+
+/* ORDERS LIST */
+.orders {
+    max-width:700px;
+    margin:0 auto;
+    padding:20px;
+    position:relative;
+    z-index:1;
+}
+
+.order-item {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#111;
+    padding:15px;
+    margin-bottom:15px;
+    border-radius:15px;
+    transition:0.3s;
+    position:relative;
+}
+
+.order-item img {
+    width:60px;
+    height:60px;
+    object-fit:cover;
+    border-radius:10px;
+    margin-right:15px;
+}
+
+.order-info {
+    flex:1;
+}
+
+.order-item:hover {
+    background:#222;
+}
+
+.order-item h3 {
+    margin:0;
+    font-weight:600;
+}
+
+.order-item .price {
+    font-weight:bold;
+    color:#f5c542;
+}
+
+.order-item .quantity {
+    margin-top:5px;
+    color:#ccc;
+    font-size:14px;
+}
+
+/* TOTAL */
+.total {
+    display:flex;
+    justify-content:space-between;
+    background:#111;
+    padding:20px;
+    border-radius:15px;
+    margin-top:20px;
+    font-size:20px;
+    font-weight:600;
+    position:relative;
+}
+
+/* CONFIRM BUTTON */
+.confirm-btn {
+    display:block;
+    margin:50px auto;
+    padding:15px 50px;
+    background:#f5c542;
+    color:black;
+    border:none;
+    border-radius:30px;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+    position:relative;
+    z-index:1;
+}
+
+.confirm-btn:hover {
+    transform:scale(1.05);
+}
+
+/* SHORT QUOTES & BUBBLES */
+.quote {
+    text-align:center;
+    margin-top:30px;
+    color:#aaa;
+    font-style:italic;
+    font-size:18px;
+    position:relative;
+}
+
+.bubble {
+    position:absolute;
+    border-radius:50%;
+    padding:10px 20px;
+    background: rgba(245,197,66,0.8);
+    color:black;
+    font-weight:bold;
+    animation: floatBubble linear infinite;
+    font-family:'Poppins', sans-serif;
+    font-size:14px;
+    z-index:0;
+}
+
+@keyframes floatBubble {
+    0% {transform: translateY(100vh) translateX(0);}
+    100% {transform: translateY(-50px) translateX(50px);}
+}
+
+/* SPARK EFFECT WHEN ITEM ADDED */
+.spark {
+    position:absolute;
+    width:15px;
+    height:15px;
+    background:#f5c542;
+    border-radius:50%;
+    animation: sparkAnim 0.7s ease-out forwards;
+}
+
+@keyframes sparkAnim {
+    0% {opacity:1; transform:translate(0,0) scale(1);}
+    100% {opacity:0; transform:translate(50px,-100px) scale(0);}
+}
+</style>
+</head>
+<body>
+
+<!-- Floating Bubbles -->
+<div class="bubble" style="left:10%; animation-duration:12s;">“Eat. Smile. Repeat.”</div>
+<div class="bubble" style="left:70%; animation-duration:15s;">“Good food, good mood.”</div>
+<div class="bubble" style="left:40%; animation-duration:18s;">“Tasty & Happy.”</div>
+<div class="bubble" style="left:80%; animation-duration:20s;">“Freshly cooked!”</div>
+
+<!-- HEADER -->
+ <div class="bill-splash"></div>
+<div class="header">
+    <h1>Your Orders</h1>
+</div>
+
+<!-- BILL SPLASH -->
+
+
+<!-- ORDERS LIST -->
+<div class="orders" id="ordersContainer">
+    <!-- Items dynamically added -->
+</div>
+
+<!-- CONFIRM BUTTON -->
+<button class="confirm-btn" id="confirmBtn">Confirm & Proceed to Payment</button>
+
+<!-- SHORT QUOTE -->
+<div class="quote">“Delicious moments await!”</div>
+
+<script>
+
+// Get cart from localStorage
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+let ordersContainer = document.getElementById("ordersContainer");
+let total = 0;
+
+// If cart is empty
+if(cart.length === 0){
+    ordersContainer.innerHTML = "<h2 style='text-align:center;'>Your cart is empty!</h2>";
+} else {
+
+    // Convert cart into quantity format
+    let groupedCart = {};
+
+    cart.forEach(item => {
+        if(groupedCart[item.name]){
+            groupedCart[item.name].qty += 1;
+        } else {
+            groupedCart[item.name] = {
+                price: item.price,
+                qty: 1
+            };
+        }
+    });
+
+    // Display items
+    for(let name in groupedCart){
+
+        let itemTotal = groupedCart[name].price * groupedCart[name].qty;
+        total += itemTotal;
+
+        let div = document.createElement("div");
+        div.className = "order-item";
+
+        div.innerHTML = `
+            <div class="order-info">
+                <h3>${name}</h3>
+                <div class="quantity">Quantity: ${groupedCart[name].qty}</div>
+            </div>
+            <div class="price">₹${itemTotal}</div>
+        `;
+
+        ordersContainer.appendChild(div);
+    }
+
+    // Add total section
+    let totalDiv = document.createElement("div");
+    totalDiv.className = "total";
+    totalDiv.innerHTML = `<span>Total</span><span>₹${total}</span>`;
+    ordersContainer.appendChild(totalDiv);
+}
+
+// Confirm button action
+document.getElementById("confirmBtn").addEventListener("click", () => {
+
+    if(cart.length === 0){
+        alert("Cart is empty!");
+        return;
+    }
+
+    alert("Order Confirmed!");
+    
+    // Clear cart after order
+    localStorage.removeItem("cart");
+
+    window.location.href = "payment.html";
+});
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment Interface</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Marguerite&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #000;
+        color: #fff;
+        font-family: 'Poppins', sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        height: 100vh;
+        overflow: hidden;
+        position: relative;
+    }
+
+    h1 {
+        font-family: 'Montserrat';
+        font-size: 4em;
+        text-align: center;
+        margin-top: 40px;
+        text-shadow: 0 0 15px #fff50f;
+    }
+
+    .qr-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        animation: pulse 2s infinite;
+    }
+
+    .qr-container img {
+        width: 350px;
+        height: 350px;
+        object-fit: contain;
+        border: 4px solid #fff;
+        border-radius: 15px;
+        padding: 15px;
+        background-color: #111;
+        box-shadow: 0 0 30px rgba(255,255,255,0.2);
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .qr-container img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 50px #fff;
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1); box-shadow: 0 0 30px rgba(255,255,255,0.2); }
+        50% { transform: scale(1.02); box-shadow: 0 0 50px rgba(255,255,255,0.5); }
+        100% { transform: scale(1); box-shadow: 0 0 30px rgba(255,255,255,0.2); }
+    }
+
+    .scan-text {
+        font-size: 1.8em;
+        font-weight: bold;
+        letter-spacing: 1px;
+        margin-bottom: 20px;
+        animation: pulseText 1.5s infinite;
+        color: #fff;
+        text-shadow: 0 0 10px #fff;
+    }
+
+    @keyframes pulseText {
+        0% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(1.1); opacity: 0.8; }
+        100% { transform: scale(1); opacity: 1; }
+    }
+
+    .quote {
+        font-size: 1.2em;
+        margin-bottom: 20px;
+        text-align: center;
+        font-style: italic;
+        color: #ccc;
+    }
+
+    /* Get Token Button */
+    .get-token-btn {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        background-color: #fff;
+        color: #000;
+        border: none;
+        padding: 12px 20px;
+        font-size: 1em;
+        font-weight: bold;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+        text-decoration: none;
+    }
+
+    .get-token-btn:hover {
+        background-color: #ffd700;
+        transform: scale(1.05);
+    }
+
+    @media(max-width: 400px) {
+        h1 { font-size: 3em; }
+        .qr-container img { width: 250px; height: 250px; }
+        .scan-text { font-size: 1.4em; }
+        .quote { font-size: 1em; }
+        .get-token-btn { padding: 10px 16px; font-size: 0.9em; }
+    }
+    /* Pulse heading inside oval */
+.pulse-heading {
+    display: inline-block;
+    padding: 20px 50px;
+    border-radius: 50px; /* Oval shape */
+    background: linear-gradient(90deg, #f5c542, #ffec99, #f5c542);
+    color: black;
+    text-align: center;
+    font-size: 4em;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    text-shadow: 0 0 10px #fff50f;
+    animation: pulseOval 1.5s infinite;
+    margin-top: 40px;
+}
+
+/* Pulse animation */
+@keyframes pulseOval {
+    0% { transform: scale(1); box-shadow: 0 0 20px #f5c542; }
+    50% { transform: scale(1.05); box-shadow: 0 0 40px #ffec99; }
+    100% { transform: scale(1); box-shadow: 0 0 20px #f5c542; }
+}
+
+</style>
+</head>
+<body>
+    <h1 class="pulse-heading">Payment</h1>
+
+
+    <div class="qr-container">
+        <div class="scan-text">Scan Me</div>
+        <img src="scanner.jpeg" alt="QR Code">
+    </div>
+
+    <div class="quote">"Small payments, big possibilities."</div>
+
+    <!-- Button navigating to next page -->
+    <a href="next.html" class="get-token-btn">Get Token</a>
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GoCanteen</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* BODY WITH BACKGROUND IMAGE AND BLEND */
+        body {
+            font-family: 'Poppins', 'Montserrat', sans-serif;
+            color: #fff;
+            min-height: 100vh;
+            background: linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                        url('wallt.jpg') no-repeat left center;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        /* Navigation */
+        nav {
+            width: 100%;
+            padding: 20px 60px;
+            display: flex;
+            justify-content: flex-end;
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 2;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #f5c542;
+        }
+
+        /* Main Layout */
+        .container {
+            display: flex;
+            height: 100vh;
+            padding: 0 80px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Left Section */
+        .left {
+            width: 50%;
+        }
+
+        .left h1 {
+            font-size: 90px; /* larger heading */
+            font-weight: 900;
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 20px;
+            color: #f5c542; /* accent color */
+            text-shadow: 2px 2px 12px rgba(0,0,0,0.7);
+        }
+
+        .left p {
+            font-size: 18px;
+            color: #ccc;
+            max-width: 500px;
+            line-height: 1.6;
+        }
+
+        /* Right Login Section */
+        .right {
+            width: 35%;
+            background: rgba(17,17,17,0.95);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 40px rgba(0,0,0,0.4);
+        }
+
+        .right h2 {
+            margin-bottom: 30px;
+            font-weight: 700;
+            text-align: center;
+            color: #f5c542;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            background: #000;
+            border: 1px solid #444;
+            color: #fff;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #f5c542;
+        }
+
+        .captcha {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #f5c542;
+            color: #000;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #e0b900;
+        }
+
+        @media(max-width: 900px){
+            .container {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px;
+            }
+
+            .left, .right {
+                width: 100%;
+            }
+
+            .right {
+                margin-top: 40px;
+            }
+
+            nav {
+                justify-content: center;
+                padding: 20px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+
+        <!-- Left Section -->
+        <div class="left">
+            <h1>CanteenGo</h1>
+            <p>
+                Pre-book your favorite meals from the college canteen in just a few clicks. 
+                Skip the queues, save time, and enjoy a seamless food ordering experience 
+                designed specially for students.
+            </p>
+        </div>
+
+        <!-- Right Section -->
+        <div class="right">
+            <h2>Login</h2>
+
+            <div class="form-group">
+                <input type="text" placeholder="Enter Your Name" required>
+            </div>
+
+            <div class="form-group">
+                <input type="text" placeholder="Admission Number" required>
+            </div>
+
+            <div class="captcha">
+                <input type="checkbox" required>
+                <label>I'm not a robot</label>
+            </div>
+
+            <a href="home.html">
+                <button>Login</button>
+            </a>
+        </div>
+
+    </div>
+
+</body>
+</html>
