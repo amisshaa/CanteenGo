@@ -13,7 +13,7 @@
 - Member 2: Althea Maria Francis - Gec Kozhikode
 
 ### Hosted Project Link
-[mention your proj
+https://amisshaa.github.io/CanteenGo/
 
 ### Project Description
 This project is a simple web application that allows college students to pre-book meals in advance to avoid rush and long waiting times in the canteen. It helps students save free time, manage schedules better, and ensures faster, smoother food service on campus.
