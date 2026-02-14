@@ -37,7 +37,7 @@ To address this problem, a Food Pre-Booking App is developed that allows college
 - Languages used: HTML,CSS,Javascript
 - Frameworks used: [e.g., React, Django, Spring Boot]
 - Libraries used: [e.g., axios, pandas, JUnit]
-- Tools used: [e.g., VS Code, Git, Docker]
+- Tools used: VS Code, Git
 
 **For Hardware:**
 - Main components: [List main components]
@@ -87,14 +87,17 @@ List the key features of your project:
 
 #### Screenshots (Add at least 3)
 
-![Screenshot1](Add screenshot 1 here with proper name)
+![Screens<img width="1920" height="1080" alt="Screenshot (28)" src="https://github.com/user-attachments/assets/710ba5be-95b9-4d55-931a-3e72fed0ed0f" />
+hot1](Add screenshot 1 here with proper name)
 *Add caption explaining what this shows*
 
 ![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
+*Add ca<img width="1920" height="1080" alt="Screenshot (27)" src="https://github.com/user-attachments/assets/046ae2d7-6f37-45a6-b765-072703f7a7d1" />
+ption explaining what this shows*
 
 ![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
+*Add caption explain<img width="1920" height="1080" alt="Screenshot (26)" src="https://github.com/user-attachments/assets/22bedeae-83a4-4aa4-a1f4-57966c8d4c38" />
+ing what this shows*
 
 #### Diagrams
 
